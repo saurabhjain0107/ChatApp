@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">ChatApp</string>
+    <string name="already_register_login">already_register_login</string>
+    <string name="registration">registration</string>
+    <string name="userid">userid</string>
+    <string name="firstname">firstname</string>
+    <string name="enter_your_first_name">enter_your_first_name</string>
+    <string name="lastname">lastname</string>
+    <string name="saurabh">saurabh</string>
+</resources>
