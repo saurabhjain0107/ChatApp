@@ -10,6 +10,8 @@ import com.example.chatapp.databinding.ActivitySingUpBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.DatabaseReference
+import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.ktx.Firebase
 
 class SingUp : AppCompatActivity() {
@@ -17,7 +19,7 @@ class SingUp : AppCompatActivity() {
 
     lateinit var binding : ActivitySingUpBinding
     private lateinit var auth: FirebaseAuth
-//    private lateinit var mdbRef:
+    private lateinit var mdbRef: DatabaseReference
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -54,8 +56,11 @@ class SingUp : AppCompatActivity() {
 
     }
 
-    private fun addUserToDatabase(firstName: String, lastName: String, email: String, password: String, uid: String?) {
+    private fun addUserToDatabase(firstName: String, lastName: String, email: String, password: String, uid: String) {
 
+        mdbRef = FirebaseDatabase.getInstance().getReference()
+
+        mdbRef.child("User").child(uid).setValue(User(firstName,lastName, email, password,uid))
 
 
 
